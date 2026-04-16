@@ -1,0 +1,25 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+      - name: Format check
+        run: test -z "$(gofmt -l cmd internal examples)"
+      - name: Vet
+        run: go vet -mod=vendor ./...
+      - name: Test
+        run: go test -mod=vendor ./...
+      - name: Build linux amd64
+        run: GOOS=linux GOARCH=amd64 go build -mod=vendor -trimpath -buildvcs=false ./cmd/pidtrail
+      - name: Build linux arm64
+        run: GOOS=linux GOARCH=arm64 go build -mod=vendor -trimpath -buildvcs=false ./cmd/pidtrail
+

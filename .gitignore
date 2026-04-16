@@ -1,0 +1,14 @@
+/bin/
+/dist/
+/coverage.out
+/coverage.txt
+/netray
+/netray.exe
+/pidtrail
+/pidtrail.exe
+/pidtrail-*.tar.gz
+/.release/
+/tmp/
+/.cache/
+/.idea/
+/.vscode/

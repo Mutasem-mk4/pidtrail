@@ -1,0 +1,21 @@
+#!/usr/bin/make -f
+
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+export DH_GOLANG_INSTALL_EXTRA := \
+	completions/pidtrail.bash \
+	completions/pidtrail.zsh \
+	completions/pidtrail.fish \
+	docs/architecture.md \
+	docs/support-matrix.md \
+	docs/security-model.md
+export GOFLAGS := -mod=vendor -trimpath -buildvcs=false
+
+%:
+	dh $@ --buildsystem=golang --with=golang
+
+override_dh_auto_build:
+	dh_auto_build -- -mod=vendor -trimpath -buildvcs=false -ldflags "-X github.com/pidtrail/pidtrail/internal/version.Version=$(DEB_VERSION_UPSTREAM) -X github.com/pidtrail/pidtrail/internal/version.Commit=debian"
+
+override_dh_auto_test:
+	go test -mod=vendor ./...
+

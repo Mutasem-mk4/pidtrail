@@ -1,0 +1,85 @@
+.TH PIDTRAIL 1 "2026-04-17" "pidtrail" "User Commands"
+.SH NAME
+pidtrail \- Linux process-scoped runtime investigator
+.SH SYNOPSIS
+.B pidtrail
+.RB [ \-\-pid " PID | " \-\-process " NAME" ]
+.RB [ \-\-duration " DURATION" ]
+.RB [ \-\-json " PATH | " \-\-jsonl " PATH" ]
+.RB [ \-\-report\-dir " DIR" ]
+.RB [ \-\-diagnose ]
+.RB [ \-\-quiet ]
+.P
+.B pidtrail
+.RB [ options ]
+.B \-\-
+.I COMMAND
+.RI [ ARGS... ]
+.SH DESCRIPTION
+.B pidtrail
+is a Linux-first runtime investigator for authorized debugging, incident response, and security research.
+.PP
+The current implementation traces:
+.IP \(bu 2
+process lifecycle metadata for clone/fork-style child creation, exec, and exit
+.IP \(bu 2
+file-open metadata for
+.BR openat (2)
+and
+.BR openat2 (2)
+.IP \(bu 2
+network metadata for
+.BR connect (2),
+.BR accept (2),
+.BR accept4 (2),
+and socket close events
+.PP
+It does not claim plaintext TLS visibility or packet payload capture.
+.SH OPTIONS
+.TP
+.B \-\-pid PID
+Attach to a specific PID.
+.TP
+.B \-\-process NAME
+Track processes whose command name matches exactly.
+.TP
+.B \-\-duration DURATION
+Optional trace duration, for example
+.BR 30s .
+.TP
+.B \-\-json PATH
+Write collected events as JSON.
+.TP
+.B \-\-jsonl PATH
+Write collected events as JSON Lines.
+.TP
+.B \-\-report\-dir DIR
+Write a report bundle containing
+.I events.jsonl
+and
+.IR summary.json .
+.TP
+.B \-\-diagnose
+Check runtime support conditions and exit.
+.TP
+.B \-\-quiet
+Disable terminal output.
+.TP
+.B \-\-version
+Print version information and exit.
+.SH EXAMPLES
+.TP
+Attach to a PID:
+.B sudo pidtrail \-\-pid 1234
+.TP
+Track a process name:
+.B sudo pidtrail \-\-process curl
+.TP
+Launch and trace a command:
+.B sudo pidtrail \-\-report\-dir report \-\- /usr/bin/curl https://example.com
+.TP
+Run diagnostics:
+.B sudo pidtrail \-\-pid 1234 \-\-diagnose
+.SH SECURITY NOTES
+Use only on systems and processes you are authorized to inspect. Captured metadata may still contain sensitive file paths, process names, and network endpoints.
+

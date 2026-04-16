@@ -1,0 +1,3 @@
+Test-Command: pidtrail --version && pidtrail --pid $$ --diagnose
+Depends: @
+Restrictions: allow-stderr

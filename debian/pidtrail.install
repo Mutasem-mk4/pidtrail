@@ -1,0 +1,8 @@
+completions/pidtrail.bash usr/share/bash-completion/completions/pidtrail
+completions/pidtrail.zsh usr/share/zsh/vendor-completions/_pidtrail
+completions/pidtrail.fish usr/share/fish/vendor_completions.d/pidtrail.fish
+README.md usr/share/doc/pidtrail/
+docs/architecture.md usr/share/doc/pidtrail/
+docs/support-matrix.md usr/share/doc/pidtrail/
+docs/security-model.md usr/share/doc/pidtrail/
+

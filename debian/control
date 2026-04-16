@@ -1,0 +1,19 @@
+Source: pidtrail
+Section: utils
+Priority: optional
+Maintainer: Mutasem-mk4 <140179052+Mutasem-mk4@users.noreply.github.com>
+Build-Depends:
+ debhelper-compat (= 13),
+ dh-golang,
+ golang-any
+Standards-Version: 4.7.4.1
+Rules-Requires-Root: no
+XS-Go-Import-Path: github.com/pidtrail/pidtrail
+
+Package: pidtrail
+Architecture: any
+Depends:
+ ${misc:Depends}
+Description: process-scoped Linux runtime investigator
+ pidtrail is a Linux-first CLI for tracing process lifecycle, file-open, and
+ network metadata for a target PID, process name, or launched command.
