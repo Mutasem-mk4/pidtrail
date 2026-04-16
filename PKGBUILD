@@ -10,7 +10,7 @@ depends=()
 makedepends=('go')
 # Local review tarball generated from a local git tag via packaging/make-local-release.sh.
 source=("${pkgname}-${pkgver}.tar.gz")
-sha256sums=('7a7d5b12d4a4a620e740137786c5c75f8aaae85ec40ebebe8336433543b0a93c')
+sha256sums=('ed4620323e2c5af149aca15b6af11c0ecd365c3c114366eaaf25bea343f44cbb')
 
 build() {
   cd "${srcdir}/${pkgname}-${pkgver}"
