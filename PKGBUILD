@@ -1,5 +1,5 @@
 pkgname=pidtrail
-pkgver=0.2.0
+pkgver=0.2.1
 pkgrel=1
 pkgdesc="Linux process-scoped runtime investigator for process, file, and network timelines"
 arch=('x86_64' 'aarch64')
@@ -10,7 +10,7 @@ depends=()
 makedepends=('go')
 # Local review tarball generated from a local git tag via packaging/make-local-release.sh.
 source=("${pkgname}-${pkgver}.tar.gz")
-sha256sums=('fccfc0908042eb4be09551d6dc9899dd5854a8d237b04bd5f4cb1119a42a9f0f')
+sha256sums=('7a7d5b12d4a4a620e740137786c5c75f8aaae85ec40ebebe8336433543b0a93c')
 
 build() {
   cd "${srcdir}/${pkgname}-${pkgver}"

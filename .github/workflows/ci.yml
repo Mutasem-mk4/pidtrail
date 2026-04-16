@@ -18,8 +18,21 @@ jobs:
         run: go vet -mod=vendor ./...
       - name: Test
         run: go test -mod=vendor ./...
+      - name: Shell script syntax
+        run: |
+          chmod +x packaging/*.sh debian/tests/smoke
+          sh -n packaging/make-local-release.sh
+          sh -n packaging/check-local-release.sh
+          sh -n packaging/linux-smoke.sh
+          sh -n debian/tests/smoke
+      - name: Local release metadata
+        run: |
+          version="$(sed -n 's/^pkgver=//p' PKGBUILD)"
+          git config user.name ci
+          git config user.email ci@local.invalid
+          git tag -f -a "v${version}" -m "ci synthetic tag"
+          ./packaging/check-local-release.sh "$version"
       - name: Build linux amd64
         run: GOOS=linux GOARCH=amd64 go build -mod=vendor -trimpath -buildvcs=false ./cmd/pidtrail
       - name: Build linux arm64
         run: GOOS=linux GOARCH=arm64 go build -mod=vendor -trimpath -buildvcs=false ./cmd/pidtrail
-

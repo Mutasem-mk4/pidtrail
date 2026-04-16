@@ -14,6 +14,12 @@ Generate local client traffic:
 go run ./examples/http-fixture-client
 ```
 
+Generate a local smoke workload that opens `/etc/hosts` and performs an HTTP request:
+
+```sh
+go run ./examples/http-smoke-workload
+```
+
 Trace a PID:
 
 ```sh
@@ -38,3 +44,8 @@ Run diagnostics:
 sudo ./pidtrail --pid 1234 --diagnose
 ```
 
+Run the full Linux smoke harness:
+
+```sh
+sudo sh packaging/linux-smoke.sh
+```

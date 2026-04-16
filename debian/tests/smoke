@@ -1,0 +1,14 @@
+#!/bin/sh
+set -eu
+
+tmpdir="$(mktemp -d)"
+trap 'rm -rf "$tmpdir"' EXIT INT TERM
+
+pidtrail --version >/dev/null
+pidtrail --pid $$ --quiet --diagnose --report-dir "$tmpdir/report" >"$tmpdir/stdout.log" 2>&1
+
+test -s "$tmpdir/report/events.jsonl"
+test -s "$tmpdir/report/summary.json"
+grep -q '"kind":"diagnostic"' "$tmpdir/report/events.jsonl"
+grep -q 'platform: linux' "$tmpdir/report/events.jsonl"
+grep -q '"total_events":' "$tmpdir/report/summary.json"

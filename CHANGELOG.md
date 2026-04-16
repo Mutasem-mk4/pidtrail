@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.2.1
+
+- Added Linux smoke-validation automation for PID, process-name, and launched-command modes
+- Added local release verification for git tag, tarball contents, and Arch checksum consistency
+- Added report-bundle unit coverage and more meaningful Debian autopkgtest smoke coverage
+- Tightened maintainer-facing docs for local release generation and Linux validation
+
 ## 0.2.0
 
 - Pivoted from `netray` to `pidtrail`
@@ -12,4 +19,3 @@
 ## 0.1.0
 
 - Initial `netray` scaffold
-

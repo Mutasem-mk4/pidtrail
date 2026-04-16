@@ -1,5 +1,5 @@
-pidtrail (0.2.0-1) unstable; urgency=medium
+pidtrail (0.2.1-1) unstable; urgency=medium
 
-  * Initial package for the pidtrail runtime investigator.
+  * Add Linux smoke-validation and local release-check automation.
 
- -- Mutasem-mk4 <140179052+Mutasem-mk4@users.noreply.github.com>  Fri, 17 Apr 2026 01:30:00 +0300
+ -- Mutasem-mk4 <140179052+Mutasem-mk4@users.noreply.github.com>  Fri, 17 Apr 2026 03:10:00 +0300

@@ -23,6 +23,7 @@ Pivot the repository into `pidtrail`, a Linux runtime investigator that traces p
 ## Current State After Pivot
 
 - Local host-safe tests and Linux cross-builds pass.
+- The repository now includes local release-check automation and a Linux smoke-validation harness.
 - The repository still lacks a public remote, public release URL, and Linux runtime verification on a real kernel.
 - Debian and Arch packaging are structurally present, but packaging toolchains are not available in this environment.
 - Local release review now depends on a locally generated tarball that must exclude `PKGBUILD` and `.SRCINFO` to avoid a self-referential Arch checksum.

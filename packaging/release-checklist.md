@@ -10,5 +10,7 @@
 5. Build Debian and Arch packages with distro toolchains.
 6. Verify `docs/support-matrix.md` and `README.md` still match actual behavior.
 7. Create or update a git tag for the release.
-8. Generate the local review tarball with `packaging/make-local-release.sh 0.2.0`.
-9. Update the `PKGBUILD` and `.SRCINFO` checksum from that tarball.
+8. Generate the local review tarball with `packaging/make-local-release.sh 0.2.1`.
+9. Validate the tag, tarball contents, and package checksum chain with `packaging/check-local-release.sh 0.2.1`.
+10. On Linux, run `sudo sh packaging/linux-smoke.sh`.
+11. Update the `PKGBUILD` and `.SRCINFO` checksum from that tarball if the release contents changed.

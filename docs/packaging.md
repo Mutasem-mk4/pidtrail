@@ -39,6 +39,7 @@ Important detail:
 That avoids a self-referential checksum problem, since the Arch packaging recipe lives in the repository but should not be part of the source tarball it verifies.
 
 Use [packaging/make-local-release.sh](../packaging/make-local-release.sh) after creating a local tag.
+Then verify the tag, tarball contents, and Arch checksum metadata with [packaging/check-local-release.sh](../packaging/check-local-release.sh).
 
 ## Current gap
 

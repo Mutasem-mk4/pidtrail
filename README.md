@@ -50,6 +50,20 @@ Implemented now:
 This workspace runs on Windows. Host-safe tests and Linux cross-builds can run here, but live Linux runtime validation still has to happen on Linux.
 The repository currently has no remote and no public release URL. Local packaging review currently relies on a locally generated release tarball.
 
+## Validation
+
+On a Linux host with root privileges, run the end-to-end smoke harness:
+
+```sh
+sudo sh packaging/linux-smoke.sh
+```
+
+To verify the local tag and Arch checksum chain:
+
+```sh
+sh packaging/check-local-release.sh 0.2.1
+```
+
 ## Quick Start
 
 Build:
@@ -90,4 +104,5 @@ sudo ./pidtrail --pid 1234 --diagnose
 - [docs/security-model.md](docs/security-model.md)
 - [docs/comparison.md](docs/comparison.md)
 - [docs/packaging.md](docs/packaging.md)
+- [docs/linux-validation.md](docs/linux-validation.md)
 - [man/pidtrail.1](man/pidtrail.1)

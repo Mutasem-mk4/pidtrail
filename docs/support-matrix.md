@@ -20,6 +20,7 @@
 - socket close events are emitted only when user-space enrichment can confirm the fd still resolves to a socket
 - process-name targeting is refreshed from `/proc` and is therefore best-effort around short-lived processes
 - this workspace has compile verification, not live Linux runtime verification
+- a Linux smoke-validation harness exists in `packaging/linux-smoke.sh`, but it has not been executed in this workspace
 
 ## Unsupported
 
@@ -34,4 +35,3 @@
 - Linux tracepoints must be available
 - eBPF program loading and tracepoint attach must be permitted
 - `/proc` access must be sufficient for PID scans and socket enrichment
-

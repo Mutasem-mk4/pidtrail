@@ -1,13 +1,13 @@
 pkgbase = pidtrail
 	pkgdesc = Linux process-scoped runtime investigator for process, file, and network timelines
-	pkgver = 0.2.0
+	pkgver = 0.2.1
 	pkgrel = 1
 	url =
 	arch = x86_64
 	arch = aarch64
 	license = MIT
 	makedepends = go
-	source = pidtrail-0.2.0.tar.gz
-	sha256sums = fccfc0908042eb4be09551d6dc9899dd5854a8d237b04bd5f4cb1119a42a9f0f
+	source = pidtrail-0.2.1.tar.gz
+	sha256sums = 7a7d5b12d4a4a620e740137786c5c75f8aaae85ec40ebebe8336433543b0a93c
 
 pkgname = pidtrail
