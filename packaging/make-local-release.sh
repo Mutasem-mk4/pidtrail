@@ -10,6 +10,7 @@ version="$1"
 tag="v$version"
 prefix="pidtrail-$version"
 out="${2:-$prefix.tar.gz}"
+treeish="$(git rev-parse "${tag}^{tree}")"
 
 sha256() {
   if command -v sha256sum >/dev/null 2>&1; then
@@ -30,5 +31,5 @@ sha256() {
 
 git rev-parse --verify "$tag" >/dev/null
 mkdir -p "$(dirname "$out")"
-git archive --format=tar.gz --prefix="$prefix/" -o "$out" "$tag" -- . ':(exclude)PKGBUILD' ':(exclude).SRCINFO'
+git archive --format=tar.gz --prefix="$prefix/" -o "$out" "$treeish" -- . ':(exclude)PKGBUILD' ':(exclude).SRCINFO'
 printf '%s  %s\n' "$(sha256 "$out")" "$out"
