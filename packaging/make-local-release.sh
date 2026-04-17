@@ -10,8 +10,6 @@ version="$1"
 tag="v$version"
 prefix="pidtrail-$version"
 out="${2:-$prefix.tar.gz}"
-tmpdir="$(mktemp -d)"
-trap 'rm -rf "$tmpdir"' EXIT INT TERM
 
 sha256() {
   if command -v sha256sum >/dev/null 2>&1; then
@@ -31,10 +29,6 @@ sha256() {
 }
 
 git rev-parse --verify "$tag" >/dev/null
-git archive --format=tar --prefix="$prefix/" "$tag" | tar -xf - -C "$tmpdir"
-
-rm -f "$tmpdir/$prefix/PKGBUILD" "$tmpdir/$prefix/.SRCINFO"
-
 mkdir -p "$(dirname "$out")"
-tar -C "$tmpdir" --sort=name --owner=0 --group=0 --numeric-owner -cf - "$prefix" | gzip -n > "$out"
+git archive --format=tar.gz --prefix="$prefix/" -o "$out" "$tag" -- . ':(exclude)PKGBUILD' ':(exclude).SRCINFO'
 printf '%s  %s\n' "$(sha256 "$out")" "$out"
