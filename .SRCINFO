@@ -8,6 +8,6 @@ pkgbase = pidtrail
 	license = MIT
 	makedepends = go
 	source = pidtrail-0.2.1.tar.gz
-	sha256sums = 817dd67c2fc574c762fa377fa0246832e3136ae54b908feabddc92b4d7294629
+	sha256sums = 12f4abe92991b1bddb083c72ee101c6462eace8b22361e04bca8ac40534b6e42
 
 pkgname = pidtrail
