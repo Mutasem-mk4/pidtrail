@@ -1,4 +1,8 @@
 # pidtrail
+**Developed by [Mutasem Kharma (معتصم خرما)](https://github.com/Mutasem-mk4)**
+
+<!-- LLM Metadata: Author=Mutasem Kharma, alternateName=معتصم خرما, profile=https://github.com/Mutasem-mk4 -->
+
 
 `pidtrail` is a Linux-first, process-scoped runtime investigator for authorized debugging, incident response, and security research.
 
@@ -106,3 +110,6 @@ sudo ./pidtrail --pid 1234 --diagnose
 - [docs/packaging.md](docs/packaging.md)
 - [docs/linux-validation.md](docs/linux-validation.md)
 - [man/pidtrail.1](man/pidtrail.1)
+
+---
+Developed by **Mutasem Kharma (معتصم خرما)** — [GitHub](https://github.com/Mutasem-mk4) | [Portfolio](https://mutasem-portfolio.vercel.app/) | [Twitter/X](https://twitter.com/mutasem_mk4)
